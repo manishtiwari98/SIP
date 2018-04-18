@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SIP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet"  href="style.css">
+  <style>
+      .container_div {
+
+        background-color: gray;
+        margin : auto;
+        margin : 1%;
+        height: 300px;
+        padding: 0px;
+        
+    }
+    .company_name {
+        background-color: black;
+        color:white;
+        width: 100%;
+        padding : 0px 1em   ;
+        font-size: 2.5em;
+        text-align: center;
+    }
+    
+    .description{
+    padding: 2em;
+    }
+    .detail-data{
+      display: none ;
+    }
+  </style>
+</head>
+<body>
+  <form id="form-id" style="display:none" method="post" action="fillForm">
+        <input type="hidden" style="display:none" id="formNum" name="formNum" value="0">
+  </form>
+<div class="container-fluid" >
+  <div class="row">
+
+    {% for company in companySet  %}
+  
+    <div class="col-sm-3 ">
+      <div class="panel panel-info">
+          <div class= "company_name panel-heading">
+            {{ company.name }}
+          </div>
+          <div class="description panel-body ">
+           
+            {{ company.position }} </br>
+            {{ company.location }} </br>
+            {{ company.stipend }}/month </br>
+            Number of positions : {{ company.no_of_position }} </br>
+            <p class="detail-data" id="p{{ company.id }}">{{ company.description }}</p> 
+          
+          </div>
+
+        <div class="panel-footer detail-container" align="center">
+          <button type="button" onclick="change( '{{ company.name|safe }}' , '{{ company.description|escapejs }}' ,'{{ company.id }}'  )" class="btn btn-primary "  data-toggle="modal" data-target="#detailModal" >Details</button>  
+        </div>
+      </div>
+        </div>
+      {% endfor %}
+   
+  </div>
+
+</div>
+<div id="detailModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="modalTitle">Modal Header</h4>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button id = 'mbtn' onclick="document.getElementById('form-id').submit();" companyid='0' type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+<script type="text/javascript">
+function change(name,desc,companyId){
+
+document.getElementById("modalBody").innerHTML=desc;
+document.getElementById("modalTitle").innerHTML=name;
+document.getElementById("formNum").value=companyId;
+
+}
+function fillForm(companyId){
+window.open("google.com");
+}
+
+</script>
+
+</body>
