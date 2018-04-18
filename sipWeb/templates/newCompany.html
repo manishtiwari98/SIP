@@ -1,0 +1,49 @@
+<html>
+<head>
+  <title>SIP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet"  href="/static/style.css">
+  
+</head>
+<body>
+<div class="container">
+<div class="col-md-5">
+    <div class="form-area">  
+        <form method="POST" action="addCompany">
+            {% csrf_token %}
+        <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center;">Apply</h3>
+    				<div class="form-group">
+						<input type="text" class="form-control" name="name" placeholder="Name" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control"  name="location" placeholder="location" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control"  name="position" placeholder="position" required>
+					</div>
+					
+                    <div class="form-group">
+						<input type="text" class="form-control" name="no_of_position" placeholder="no of positon"  required>
+                    </div>
+                    <div class="form-group">
+						<input type="text" class="form-control"  name="stipend" placeholder="stipend" required>
+                    </div>
+                    
+                    <div class="form-group">
+                    <textarea class="form-control" type="textarea"  name="description" placeholder="Description" maxlength="1500" rows="10"></textarea>
+                    </div>
+                    
+                </div>
+            
+        <input type="submit"  name="submit" >
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</hmtl>

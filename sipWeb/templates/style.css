@@ -1,0 +1,24 @@
+.container_div {
+
+    background-color: gray;
+    margin : auto;
+    margin : 1%;
+    height: 200px;
+    padding: 0px;
+    
+}
+.company_name {
+    background-color: black;
+    width: 100%;
+    padding : 0px 1em   ;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.description{
+padding: 2em;
+color : white;
+}
+.panel-custom{
+    height: 400px;
+}
