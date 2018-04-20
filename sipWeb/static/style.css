@@ -22,3 +22,11 @@ padding: 2em;
 .detail-data{
   display: none ;
 }
+
+.hd {
+
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 2em;
+    height: 2em;
+}

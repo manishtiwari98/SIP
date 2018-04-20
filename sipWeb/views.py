@@ -44,10 +44,18 @@ def addCompany(request):
 
         )
         new_company.save()
-        return HttpResponse(status=200,content='Company added. <script src="/static/script.js">socket = new WebSocket("ws://" + window.location.host + "/chat/");hi(); </script>' )
+        return render(request,'registered.html')
     except:
+        return render(request,'registered.html')
         return HttpResponse(status=350)
+
+def analysis(request):
+    applicants=Applicants.objects.all()
+    tot=len(applicants)
+    company=Company.objects.all()
     
+    return render(request,'analysis.html',{'total':tot,'companyData':company})
+
 
 
 # Create your views here.

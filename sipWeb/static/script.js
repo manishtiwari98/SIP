@@ -6,7 +6,7 @@ socket.onmessage = function(e) {
 
     let template = `
 <div class="panel panel-info">
-    <div class= "company_name panel-heading">
+    <div class= "company_name panel-heading hd">
       ${ data.name }
     </div>
     <div class="description panel-body ">
@@ -31,7 +31,13 @@ socket.onmessage = function(e) {
 }
 
 function hi(){ 
-  if (socket.readyState == WebSocket.OPEN) socket.send('');
+ 
+
+  setTimeout(function(){
+    if (socket.readyState == WebSocket.OPEN) socket.send('');
+    else console.log('hey');
+  }, 1000)
+
 }
 
 function change(name,desc,companyId){

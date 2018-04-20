@@ -1,0 +1,10 @@
+<html>
+    <body>
+        Total applicants: {{ total }}
+        {% for comp in companyData %}
+        <p>
+            {{ comp.name }} : {{ comp.appCount }}
+        </p>
+        {% endfor %}
+    </body>
+</html>

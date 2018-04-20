@@ -6,7 +6,8 @@ urlpatterns = [
     path('sip/fillForm',views.fillForm),
     path('companyForm',views.comparyForm),
     path('addCompany',views.addCompany),
-    path('sip/addApplicant',views.addApplicant)
+    path('sip/addApplicant',views.addApplicant),
+    path('analysis',views.analysis)
 
 ]
 
