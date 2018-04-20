@@ -1,8 +1,8 @@
 socket = new WebSocket("ws://" + window.location.host + "/chat/");
 
 socket.onmessage = function(e) {
+    console.log(e.data)
     var data=JSON.parse(e.data);
-    
 
     let template = `
 <div class="panel panel-info">
@@ -30,12 +30,12 @@ socket.onmessage = function(e) {
     element.appendChild(div);    
 }
 
-function hi(){ 
+function hi(name,location,description,no_of_position,stipend,position){ 
  
 
   setTimeout(function(){
-    if (socket.readyState == WebSocket.OPEN) socket.send('');
-    else console.log('hey');
+    if (socket.readyState == WebSocket.OPEN) socket.send('{"name": "' + name + '","location":"' + location + '","description":"' + description + '","no_of_position":"' + no_of_position + '", "stipend":"' + stipend + '","position":"' + position+'"}');
+
   }, 1000)
 
 }

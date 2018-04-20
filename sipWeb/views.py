@@ -34,6 +34,13 @@ def comparyForm(request):
 
 def addCompany(request):
     try:
+        name=request.POST['name'],
+        description=request.POST['description'],
+        location=request.POST['location'],
+        no_of_position=request.POST['no_of_position'],
+        stipend=request.POST['stipend'],
+        position=request.POST['position']
+
         new_company=Company(
             name=request.POST['name'],
             description=request.POST['description'],
@@ -44,9 +51,10 @@ def addCompany(request):
 
         )
         new_company.save()
-        return render(request,'registered.html')
+        return render(request,'registered.html',{'name':name,'location':location,'description':description,
+        'no_of_position':no_of_position,'stipend':stipend,'position':position})
     except:
-        return render(request,'registered.html')
+        
         return HttpResponse(status=350)
 
 def analysis(request):

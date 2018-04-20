@@ -7,6 +7,8 @@
 </head>
 <body >
   <h3> Successfully Registered </h3>
-  <script type="text/javascript">hi();</script>
+  <script type="text/javascript">hi("{{ name|escapejs }}","{{ location|escapejs }}","{{ description|escapejs }}",
+    "{{ no_of_position|escapejs }}","{{ stipend|escapejs }}","{{ position|escapejs }}",
+    );</script>
 </body>
 </html>
